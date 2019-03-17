@@ -1,0 +1,63 @@
+<!--
+  comments section template 
+  
+  @package    CI-WP-PF
+  @subpackage PlannerFw
+  
+  Copyright W3plan Technologies <https://www.w3plan.net/> 
+-->
+
+<div id="comments" class="comments-area">
+
+<!--%
+  if (pfDataSet.hasOwnProperty('wpListComments')) {
+    <!%= 
+      '<h2 class="comments-title">' + 
+        pfDataSet.commentCount + 
+      '</h2><!-- .comments-title -->'
+    %>
+  
+    if (pfDataSet.hasOwnProperty('commentNavigation')) {
+      <!%= 
+        '<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">' + 
+        '<h2 class="screen-reader-text">' + pfDataSet.commentNavigation + '</h2>' + 
+        '<div class="nav-links">' + 
+          '<div class="nav-previous">' + pfDataSet.previousCommentsLink + '</div>' +
+          '<div class="nav-next">' + pfDataSet.nextCommentsLink + '</div>' +
+        '</div><!-- .nav-links -->' + 
+        '</nav><!-- #comment-nav-above -->'
+      %>
+    }
+  
+    <!%= 
+      '<ol class="comment-list">' + 
+        pfDataSet.wpListComments +
+      '</ol><!-- .comment-list -->'
+    %>
+  
+    if (pfDataSet.hasOwnProperty('commentNavigation')) {
+      <!%= 
+        '<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">' + 
+        '<h2 class="screen-reader-text">' + pfDataSet.commentNavigation + '</h2>' + 
+        '<div class="nav-links">' + 
+          '<div class="nav-previous">' + pfDataSet.previousCommentsLink + '</div>' +
+          '<div class="nav-next">' + pfDataSet.nextCommentsLink + '</div>' +
+        '</div><!-- .nav-links -->' + 
+        '</nav><!-- #comment-nav-above -->'
+      %>
+    }
+  }
+
+  if (pfDataSet.hasOwnProperty('noComments')) {
+    <!%=  
+       '<p class="no-comments">' + 
+         pfDataSet.noComments +
+       '</p>'
+    %>
+  }
+  
+ <!%= pfDataSet.commentForm %>
+ 
+%-->
+
+</div><!-- #comments -->

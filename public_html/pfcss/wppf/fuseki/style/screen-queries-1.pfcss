@@ -1,0 +1,190 @@
+/**
+
+  section template for screen queries 
+  
+  @package    CI-WP-PF
+  @subpackage PlannerFw
+  
+  Copyright W3plan Technologies <https://www.w3plan.net/> 
+
+*/
+
+@media screen and (max-width:61.9999em) 
+{
+  <!--%= planner.prefixSelectors('body:not(.custom-background-image)', '&:after, &:before'); %--> {
+    background: inherit;
+    content: "";
+    display: block;
+    height: 21px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 99
+  }
+  
+  body:not(.custom-background-image):before {
+    top: 0
+  }
+
+  body:not(.custom-background-image).admin-bar:before {
+    top: 46px
+  }
+
+  body:not(.custom-background-image):after {
+    bottom: 0
+  }
+
+  .site {
+    margin: 21px
+  }
+
+  .site-main {
+    margin-bottom: 5.25em
+  }
+
+  .site-header {
+    padding: 1.9375em 7.6923%
+  }
+
+  .site-branding {
+    margin-top: 1.3125em;
+    margin-bottom: 1.3125em
+  }
+
+  .custom-logo {
+    max-width: 210px
+  }
+
+  .post-navigation .post-title,.site-title {
+    font-size: 28px;
+    font-size: 1.75rem;
+    line-height: 1.25
+  }
+
+  .wp-custom-logo {
+    margin-top: .5em
+  }
+
+  .site-description {
+    display: block
+  }
+
+  .menu-toggle {
+    font-size: 16px;
+    font-size: 1rem;
+    padding: .8125em .875em .6875em
+  }
+
+  .header-image,.menu-toggle,.site-header-menu {
+    margin: 1.3125em 0
+  }
+
+  .site-header .main-navigation+.social-navigation {
+    margin-top: 2.625em
+  }
+
+  .pagination {
+    margin: 0 23.0769% 4.421052632em 7.6923%
+  }
+
+  .post-navigation,.site-main>article {
+    margin-bottom: 5.25em
+  }
+
+  .pagination .current .screen-reader-text {
+    position: absolute !important
+  }
+   
+  .pagination .page-numbers {
+    display: inline-block
+  }
+  .comments-area,.content-bottom-widgets,.entry-content,.entry-footer,.entry-header,.entry-summary,.image-navigation,.page-content,.page-header,.post-navigation,.post-thumbnail {
+    margin-right: 23.0769%
+  }
+
+  .entry-title {
+    font-size: 33px;
+    font-size: 2.0rem;
+    line-height: 1.2727272727;
+    margin-bottom: .8484848485em
+  }
+  
+  <!--%= planner.prefixSelectors('.entry-content', 'blockquote.alignleft, blockquote.alignright'); %--> {
+    border-width: 4px 0 0;
+    padding: .9473684211em 0 0;
+    width: -webkit-calc(50% - .736842105em);
+    width: calc(50% - .736842105em)
+  }
+  
+  .comment-content blockquote,.entry-content blockquote:not(.alignleft):not(.alignright),.entry-summary blockquote {
+    margin-left: -1.473684211em
+  }
+
+  .comment-content blockquote blockquote,.entry-content blockquote blockquote:not(.alignleft):not(.alignright),.entry-summary blockquote blockquote {
+    margin-left: 0
+  }
+  
+  <!--%= planner.suffixSelectors('ol', pfvar_comment_entry_summary); %-->,
+  <!--%= planner.suffixSelectors('ul', pfvar_comment_entry_summary); %--> {
+    margin-left: 0
+   }
+  
+  <!--%= planner.suffixSelectors('blockquote>ul', pfvar_comment_entry_summary); %-->,
+  <!--%= planner.suffixSelectors('li>ul', pfvar_comment_entry_summary); %--> {
+    margin-left: 1.25em
+  }
+  
+  <!--%= planner.suffixSelectors('blockquote>ol', pfvar_comment_entry_summary); %-->,
+  <!--%= planner.suffixSelectors('li>ol', pfvar_comment_entry_summary); %--> {
+    margin-left: 1.5em
+  }
+  
+  .comment-author {
+    margin-bottom: 0
+  }
+
+  .comment-author .avatar {
+    height: 42px;
+    position: relative;
+    top: .25em;
+    width: 42px
+  }
+
+  .comment-list .children>li {
+    padding-left: 1.75em
+  }
+
+  .comment-list+.comment-respond,.comment-navigation+.comment-respond {
+    padding-top: 3.5em
+  }
+
+  .comments-area,.content-bottom-widgets .widget-area,.widget {
+    margin-bottom: 5.25em
+  }
+
+  .sidebar,.widecolumn {
+    margin-bottom: 5.25em;
+    padding-right: 23.0769%
+  }
+  
+  <!--%= planner.prefixSelectors('body:not(.search-results) .entry-summary', 'blockquote>ul, li>ul'); %--> {
+    margin-left: 1.157894737em
+  }
+
+  <!--%= planner.prefixSelectors('body:not(.search-results) .entry-summary', 'blockquote>ol, li>ol'); %--> {
+    margin-left: 1.473684211em
+  }
+  
+  .carousel-caption {
+    display: none
+  }
+
+  .leaderboard {
+    width: 300px;
+    height: 100px
+  }
+  
+  .search-form,.custom-logo {
+    display:none;
+  }
+}

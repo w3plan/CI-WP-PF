@@ -1,0 +1,4 @@
+{
+"description": "List all entirety files that include the section. This file was created by PlannerFw Preprocessor.",
+"entireties": ["/wppf/fuseki/index.html","/wppf/fuseki/page.html","/wppf/fuseki/single.html","/wppf/fuseki/search.html","/wppf/fuseki/archive.html","/wppf/fuseki/page-$slug.html","/wppf/fuseki/single-$posttype-$slug.html","/wppf/fuseki/archive-$posttype.html","/wppf/fuseki/page-custom-data.html","/wppf/fuseki/page-list-tables.html","/wppf/fuseki/single-event.html","/wppf/fuseki/single.s1.html"]
+}

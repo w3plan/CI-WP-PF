@@ -1,0 +1,82 @@
+<!--%=
+  /** 
+   * include header-top section
+   */
+  planner.section("/wppf/fuseki/struct/header-top.html", pfDataSet.headerTop);
+%-->
+
+<!--%=
+  /** 
+   * include navigation-menu section
+   */
+  planner.section("/wppf/fuseki/struct/navigation-menu.html", pfDataSet.navMenu);
+%-->
+
+<!--%=
+  /** 
+   * include content-top section
+   */
+  planner.section("/wppf/fuseki/struct/content-top.html", pfDataSet.contentTop);
+%-->
+
+<!-- 
+  archive entirety template for posttype
+  
+  @package    CI-WP-PF
+  @subpackage PlannerFw
+  
+  Copyright W3plan Technologies <https://www.w3plan.net/> 
+-->
+
+<div class="container<!--% if (pfConfig.viewGlobal.hasOwnProperty('VIEW_DESIGN') && pfConfig.viewGlobal.VIEW_DESIGN === 'fluid') { <!%= '-fluid' %> } %-->">
+  <div class="row">
+    <div class="col-md-9<!--% if (pfConfig.viewGlobal.hasOwnProperty('VIEW_LAYOUT') && pfConfig.viewGlobal.VIEW_LAYOUT === 'sidebar-content') { <!%= ' col-md-push-3' %> } %-->">
+      <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+          <div class="row">
+            <div class="col-md-12">
+                <!--
+                    Add your PlannerFw template code to archive-$posttype archive
+                -->
+            </div>
+          </div>
+        </main><!-- #main -->
+      </div><!-- #primary -->
+    </div>
+    
+		<div class="col-md-3<!--% if (pfConfig.viewGlobal.hasOwnProperty('VIEW_LAYOUT') && pfConfig.viewGlobal.VIEW_LAYOUT === 'sidebar-content') { <!%= ' col-md-pull-9' %> } %-->">
+    <!--%
+      if (pfDataSet.contentMid.hasOwnProperty('sideBar')) 
+      {
+    %-->
+        <!--%=
+          /* include sidebar template */
+          planner.section("/wppf/fuseki/struct/sidebar.html", pfDataSet.contentMid.sideBar);
+        %-->
+    <!--%
+      }
+    %-->
+    </div>
+  </div>
+</div>
+
+<!--%=
+  /** 
+   * include content-bottom section
+   */
+  planner.section("/wppf/fuseki/struct/content-bottom.html", pfDataSet.contentBtm);
+%-->
+
+<!--%=
+  /** 
+   * include footer section
+   */
+  planner.section("/wppf/fuseki/struct/footer.html", pfDataSet.footer );
+%-->
+
+<!--%=
+  /** 
+   * include disclaimer section
+   */
+  planner.section("/wppf/fuseki/struct/disclaimer.html", pfDataSet.disclaimer );
+%-->

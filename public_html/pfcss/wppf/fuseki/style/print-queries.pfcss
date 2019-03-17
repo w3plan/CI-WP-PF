@@ -1,0 +1,141 @@
+/**
+
+  section template for print queries
+  
+  @package    CI-WP-PF
+  @subpackage PlannerFw
+  
+  Copyright W3plan Technologies <https://www.w3plan.net/> 
+
+*/
+
+@media print {
+  .comment-edit-link,.comment-metadata .edit-link,.comment-reply-link,.comment-respond,.content-bottom-widgets,.edit-link,.header-image,.main-navigation,.navigation,.page-links,.pingback .edit-link,.sidebar,.social-navigation,button,form,input,select,textarea {
+    display: none
+  }
+  
+  <!--%= planner.prefixSelectors('.comment-content', 'h4, h5, h6'); %-->,
+  <!--%= planner.prefixSelectors('.entry-content', '.author-title, h4, h5, h6'); %-->,
+  <!--%= planner.prefixSelectors('.entry-summary', 'h4, h5, h6'); %-->,
+  <!--%= planner.prefixSelectors('blockquote', 'cite, small'); %-->,
+  body, pre {
+    font-size: 12pt
+  }
+  
+  blockquote {
+    font-size: 14.25pt
+  }
+  
+  <!--%= planner.suffixSelectors('h2', pfvar_comment_entry_summary); %-->,
+  .comments-title,.page-title,.site-title,.widecolumn h2 {
+    font-size: 17.25pt
+  }
+  
+  .site-description {
+    display: block
+  }
+
+  .entry-title {
+    font-size: 24.75pt;
+    line-height: 1.2727272727;
+    margin-bottom: 1.696969697em
+  }
+
+  <!--%= planner.suffixSelectors('.entry-title', '.format-aside, .format-audio, .format-chat, .format-gallery, .format-image, .format-link, .format-quote, .format-status, .format-video'); %--> {
+    font-size: 17.25pt;
+    line-height: 1.304347826;
+    margin-bottom: 1.826086957em
+  }
+  
+  <!--%= planner.suffixSelectors('h1', pfvar_comment_entry_summary); %--> {
+    font-size: 21pt
+  }
+  
+  <!--%= planner.suffixSelectors('h3', pfvar_comment_entry_summary); %-->,
+  body:not(.search-results) .entry-summary {
+    font-size: 14.25pt
+  }
+  
+  <!--%= pfvar_print_author_caption %--> {
+    font-size: 9.75pt
+  }
+  
+  .site,body {
+    background: 0 0 !important
+  }
+  
+  .comment-author,.entry-title a,.site-branding .site-title a,blockquote cite,blockquote small,body {
+    color: #1a1a1a !important
+  }
+
+  .comments-title,.page-header,blockquote {
+    border-color: #1a1a1a !important
+  }
+  
+  <!--%= pfvar_print_author_caption %--> a, .comment-author, .entry-footer a, .site-info a, blockquote, body:not(.search-results) .entry-summary, body:not(.search-results) .entry-summary blockquote  {
+    color: #686868 !important
+  }
+  
+  code,hr {
+    background-color: #d1d1d1 !important
+  }
+  
+  .author-info,.comment-list .pingback,.comment-list .trackback,.comment-list article,.no-comments,abbr,acronym,pre,table,td,th {
+    border-color: #d1d1d1 !important
+  }
+
+  a {
+    color: #007acc !important
+  }
+  
+  <!--%= planner.suffixSelectors('a', pfvar_comment_entry_summary); %-->,
+  .pingback .comment-body>a,.taxonomy-description a {
+    box-shadow: none;
+    border-bottom: 1px solid #007acc !important
+  }
+
+  .site {
+    margin: 5%
+  }
+
+  .site-inner {
+    max-width: none
+  }
+
+  .site-header {
+    padding: 0 0 1.75em
+  }
+
+  .site-branding {
+    margin-top: 0;
+    margin-bottom: 1.75em
+  }
+  
+  .site-main {
+    margin-bottom: 3.5em
+  }
+  
+  .comments-area,.entry-content,.entry-footer,.entry-header,.entry-summary,.page-content,.page-header,.post-thumbnail {
+    margin-right: 0;
+    margin-left: 0
+  }
+  
+  .post-thumbnail,.site-main>article {
+    margin-bottom: 3.5em
+  }
+
+  <!--%= planner.prefixSelectors('.entry-content', 'blockquote.alignleft, blockquote.alignright'); %--> {
+    border-width: 4px 0 0;
+    padding: .9473684211em 0 0;
+    width: -webkit-calc(50% - .736842105em);
+    width: calc(50% - .736842105em)
+  }
+  
+  body:not(.search-results) .entry-header+.entry-summary {
+    margin-top: -1.473684211em
+  }
+
+  .site-footer,.widecolumn {
+    padding: 0
+  }
+}

@@ -1,0 +1,61 @@
+/**
+
+  section template for screen queries
+  
+  @package    CI-WP-PF
+  @subpackage PlannerFw
+  
+  Copyright W3plan Technologies <https://www.w3plan.net/>
+  
+*/
+
+@media screen and (min-width:75em) 
+{
+  body:not(.search-results) .entry-summary {
+    font-size: 23px;
+    font-size: 1.4375rem;
+    line-height: 1.5217391304;
+    margin-bottom: 1.826086957em
+  }
+
+  body:not(.search-results) .entry-header+.entry-summary {
+    margin-top: -.913043478em
+  }
+
+  <!--%= planner.prefixSelectors('body:not(.search-results) .entry-summary', 'address, dd, dl, hr, ol, p, table, ul'); %--> {
+    margin-bottom: 1.5217391304em
+  }
+
+  <!--%= planner.prefixSelectors('body:not(.search-results) .entry-summary', 
+    'blockquote>ul, li>ul'); %--> {
+    margin-left: .956521739em
+  }
+  
+  <!--%= planner.prefixSelectors('body:not(.search-results) .entry-summary', 
+    'blockquote>ol, li>ol'); %--> {
+    margin-left: 1.52173913em
+   }
+  
+  body:not(.search-results) .entry-summary blockquote {
+    font-size: 23px;
+  }
+  
+  body:not(.search-results) .entry-summary blockquote cite,body:not(.search-results) .entry-summary blockquote small {
+    font-size: 19px;
+  }
+  
+  body:not(.search-results) .entry-summary pre {
+    font-size: 16px;
+  }
+  
+  <!--%= planner.parseNestedCss(pfvar_body_not_search_entry); %-->
+  
+  <!--%= planner.prefixSelectors('body:not(.search-results) .entry-summary', 'h4, h5, h6'); %--> {
+    margin-top: 3.684210526em;
+    margin-bottom: 1.842105263em
+  }
+
+  <!--%= planner.prefixSelectors('body:not(.search-results) .entry-summary', 'h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child'); %--> {
+    margin-top: 0
+  }
+}

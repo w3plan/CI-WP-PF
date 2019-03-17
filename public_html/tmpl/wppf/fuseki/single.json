@@ -1,0 +1,4 @@
+{
+"description": "List all section files that were included by the entirety. This file was created by PlannerFw Preprocessor.",
+"sections": ["/wppf/fuseki/struct/header-top.html","/wppf/fuseki/struct/navigation-menu.html","/wppf/fuseki/struct/content-top.html","/wppf/fuseki/temp/content.html","/wppf/fuseki/struct/comments.html","/wppf/fuseki/struct/sidebar.html","/wppf/fuseki/struct/content-bottom.html","/wppf/fuseki/struct/footer.html","/wppf/fuseki/struct/disclaimer.html"]
+}

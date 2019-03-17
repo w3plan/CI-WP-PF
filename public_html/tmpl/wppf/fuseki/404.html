@@ -1,0 +1,94 @@
+<!--%=
+  /** 
+   * include header-top section
+   */
+  planner.section("/wppf/fuseki/struct/header-top.html", pfDataSet.headerTop);
+%-->
+
+<!--%=
+  /** 
+   * include navigation-menu section
+   */
+  planner.section("/wppf/fuseki/struct/navigation-menu.html", pfDataSet.navMenu);
+%-->
+
+<!--%=
+  /** 
+   * include content-top section
+   */
+  planner.section("/wppf/fuseki/struct/content-top.html", pfDataSet.contentTop);
+%-->
+
+<!--
+  404 entirety template
+  
+  @package    CI-WP-PF
+  @subpackage PlannerFw
+  
+  Copyright W3plan Technologies <https://www.w3plan.net/> 
+-->
+
+<div class="container<!--% if (pfConfig.viewGlobal.hasOwnProperty('VIEW_DESIGN') && pfConfig.viewGlobal.VIEW_DESIGN === 'fluid') { <!%= '-fluid' %> } %-->">
+  <div class="row">
+    <div class="col-md-9<!--% if (pfConfig.viewGlobal.hasOwnProperty('VIEW_LAYOUT') && pfConfig.viewGlobal.VIEW_LAYOUT === 'sidebar-content') { <!%= ' col-md-push-3' %> } %-->">
+      <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+          <div class="row">
+            <div class="col-md-12">
+              <section class="error-404 not-found">
+                <header class="page-header">
+                  <h1 class="page-title"><!--%= pfDataSet.contentMid.pageTitle %--></h1>
+                </header><!-- .page-header -->
+                
+                <div class="page-content">
+                  <p><!--%= pfDataSet.contentMid.pageContent %--></p>
+                  <!--%= pfDataSet.contentMid.searchForm %-->
+                  <div class="vertical-interval"></div>
+                  <!--%= pfDataSet.contentMid.theWidgetRecentPosts %-->
+                  <!--%
+                    if (pfDataSet.contentMid.hasOwnProperty('widgetCategories')) 
+                    { 
+                  %-->
+                      <div class="widget widget_categories"> 
+                        <h2 class="widget-title">
+                          <!--%= pfDataSet.contentMid.widgetCategories %-->
+                        </h2>
+                        <ul>
+                          <!--%= pfDataSet.contentMid.listCategories %-->
+                        </ul>
+                        </div><!-- .widget -->
+                  <!--%
+                    }
+                  %-->
+                  <!--%= pfDataSet.contentMid.theWidgetArchives %-->                  
+                  <!--%= pfDataSet.contentMid.theWidgetTagCloud %-->
+                </div><!-- .page-content -->
+              </section><!-- .error-404 -->
+            </div>
+          </div>
+        </main><!-- #main -->
+      </div><!-- #primary -->
+    </div>
+  </div>
+</div>
+
+<!--%=
+  /** 
+   * include content-bottom section
+   */
+  planner.section("/wppf/fuseki/struct/content-bottom.html", pfDataSet.contentBtm);
+%-->
+ 
+<!--%=
+  /** 
+   * include footer section
+   */
+  planner.section("/wppf/fuseki/struct/footer.html", pfDataSet.footer );
+%-->
+
+<!--%=
+  /** 
+   * include disclaimer section
+   */
+  planner.section("/wppf/fuseki/struct/disclaimer.html", pfDataSet.disclaimer );
+%-->

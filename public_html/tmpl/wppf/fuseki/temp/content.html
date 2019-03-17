@@ -1,0 +1,35 @@
+<!--
+  content section template 
+  
+  @package    CI-WP-PF
+  @subpackage PlannerFw
+  
+  Copyright W3plan Technologies <https://www.w3plan.net/> 
+-->
+
+<article id="post-<!--%= pfDataSet.theID %-->" <!--%= pfDataSet.postClass %-->>
+	<header class="entry-header">
+    <!--%= pfDataSet.theTitle %-->
+    
+    <!--%
+      if (pfDataSet.hasOwnProperty('fusekiPostedOn')) {
+        <!%= 
+          '<div class="entry-meta">' + 
+            pfDataSet.fusekiPostedOn + 
+          '</div><!-- .entry-meta -->'
+        %>
+      }
+    %-->
+	</header><!-- .entry-header -->
+  
+	<div class="entry-content">
+    <!--%= 
+      pfDataSet.theContent + 
+      pfDataSet.wpLinkPages
+    %-->
+	</div><!-- .entry-content -->
+  
+	<footer class="entry-footer">
+    <!--%= pfDataSet.fusekiEntryFooter %-->
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->

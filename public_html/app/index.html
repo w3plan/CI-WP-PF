@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="application-name" content="PlannerFw">
+<meta name="description" content="PlannerFw is an application layer that separates data content and presentation to web applications and websites">
+<meta name="keywords" content="PlannerFw, Entirety-Section Structure, Preprocess, Auto Compilation, Template, Private Template, PFCSS, Model, PFSDJS, Restrictive HTTP Requests">
+
+<title>Portable controller for the request with template path and model URL in the query string</title>
+
+<!--
+  
+  PlannerFw Exec v3.1.0
+  
+  Browser compatibilities
+  Chrome  Firefox  IE    Opera  Safari  iOS Safari  Android  Blackberry
+  5+      4+       9.0+  10.5+  4.0+    4.1+        2.1+     7+
+  
+  This file is covered by the GNU GPLv3 license <http://www.gnu.org/licenses/gpl.html>  
+  Copyright 2015-2019 W3plan Technologies, https://www.w3plan.net/
+  
+-->
+
+<!--
+  Apply PlannerFw Library
+-->
+<script src="/app/lib/planner.js"></script>
+
+<script>
+/**
+ * PlannerFw Portable Controller Setting 
+ */
+var pfConfig = {
+  /**
+   * Sets application environment either development or production
+   * default value is development
+   */
+  environment : "development",
+  
+  /**
+   * Sets page process url path with relative file path from site root 
+   */
+  processPath : "/app",
+  
+  /**
+   * Server-side handler to access private templates
+   */
+  ptmHandler : "/",
+  
+  /**
+   * Server-side script file to log client errors in production environment
+   * 
+   */
+  clientErrorLogger : "/errors/php/clientErrorLogger.php",
+  
+  /**
+   * Default template url path if assigned template is invalid
+   * Set empty value to defaultTemplate if no default template 
+   */
+  defaultTemplate : "/wppf/fuseki/index.js",
+  
+  /**
+   * Default data model url path if assigned model is invalid
+   * Set empty value to defaultModel if no default data model
+   */
+  defaultModel : "",
+  
+  /**
+   * Default URL to call if defaultTemplate, defaultModel are not assigned
+   * Set empty value to defaultUrl if no default URL
+   */
+  defaultUrl : "/",
+  
+  /**
+   * Sets timeout for loading template from server in milliseconds
+   */
+  loadTemplateTimeout : 3000,
+  
+  /**
+   * Sets timeout for loading model from server in milliseconds
+   */
+  loadModelTimeout : 3000,
+  
+  /**
+   * Sets that tracks elapsed time 
+   */
+  trackExecutedTime : true,
+  
+  /**
+   * view global setting 
+   */
+  viewGlobal : {
+                 /**
+                  * The value fluid to use container-fluid class for view grid, 
+                  * the fixed to use container class
+                  */
+                 "VIEW_DESIGN" : "fluid",
+                 
+                 /**
+                  * The value content-sidebar to use left content right sidebar for view layout,
+                  * the value sidebar-content to right sidebar left content
+                  */
+                 "VIEW_LAYOUT" : "content-sidebar"
+               }
+};
+
+</script>
+
+<!--
+  PlannerFw Controller
+-->
+<script>
+(function(){
+pfConfig.isProduct = false;
+if (pfConfig.environment.toLowerCase() == "production")
+  pfConfig.isProduct = true;
+
+// check whether PlannerFw library was loaded
+if (!window.planner) {
+  alert("Failed to load PlannerFw library");
+  return;
+}
+
+// setting for global error handler
+window.onerror = function (errorMsg, file, line, col, error) {
+  planner.errorHandler(0, errorMsg, line);
+  pfIndex = null;
+  pfTemplate = null;
+  pfModel = null;
+  pfXMLModel = null;
+};
+
+if (pfConfig.isProduct)
+  planner.deleteCookie("pf_times");
+
+var pfIndex = {};
+
+// start tracking time
+if (pfConfig.trackExecutedTime) {
+  pfIndex.start = planner.startMeter();
+  planner.updateTrackTime(0);
+}
+
+// check browser support
+planner.checkEnvironment();
+
+pfIndex.rurl = decodeURIComponent(window.location.href).trim();
+pfIndex.urlObj = {};
+
+pfConfig.processPath = "/" + pfConfig.processPath.replace(/^\//, ""); 
+pfConfig.processPath = pfConfig.processPath.replace(/\/$/, "");
+
+pfIndex.idxtm = -1;
+if (pfIndex.rurl.indexOf("tm=") !== -1) {
+  pfIndex.idxtm = pfIndex.rurl.indexOf("tm=");
+} else if (pfIndex.rurl.indexOf("ptm=") !== -1) {
+  pfIndex.idxtm = pfIndex.rurl.indexOf("ptm=");
+}
+
+pfIndex.idxmd = -1;
+if (pfIndex.rurl.indexOf("md=") !== -1) {
+  pfIndex.idxmd = pfIndex.rurl.indexOf("md=");
+} else if (pfIndex.rurl.indexOf("xmd=") !== -1) {
+  pfIndex.idxmd = pfIndex.rurl.indexOf("xmd=");
+}
+
+/**
+ *  PlannerFw Router parses the request into actions
+ */
+if (pfIndex.idxtm === -1 || pfIndex.idxmd == -1) {
+  if (pfConfig.defaultUrl) {
+    window.location.href = pfConfig.defaultUrl;
+    return;
+  } else {
+    pfIndex.urlObj.template = pfConfig.defaultTemplate;
+    pfIndex.urlObj.model = pfConfig.defaultModel;
+    pfIndex.urlObj.type = "json";
+    pfIndex.urlObj.method = "get";
+  }
+} else if (pfIndex.rurl.substr(0, pfIndex.idxtm).indexOf(pfConfig.processPath) === -1) {
+  throw new Error("The URL does not match process path");
+} else if (pfIndex.idxtm < pfIndex.idxmd){
+  pfIndex.urlObj = planner.parsePfUrl(pfIndex.rurl.substr(pfIndex.rurl.indexOf("?") + 1), pfConfig, pfIndex);
+} else {
+  throw new Error("Template should be located before model in query string");
+}
+
+if (pfConfig.trackExecutedTime)
+  planner.updateTrackTime(pfIndex.start);
+
+planner.loadTemplate(pfIndex.urlObj.template, process);
+
+planner.loadModel(pfIndex.urlObj.type, pfIndex.urlObj.model, pfIndex.urlObj.method, process);
+
+/**
+ * Callback to execution after template loaded
+ *
+ * @param {object} model    Data model for the template 
+ * @return {void}
+ */
+function process(model) {
+  if (pfConfig.trackExecutedTime)
+    planner.updateTrackTime(pfIndex.start);
+  
+  planner.checkModelData(model);
+  
+  planner.validatePfsdjs(model);
+  
+  var html = pfTemplate.run(model.pfDataSet);
+  
+  // render result page
+  document.open();
+  document.write(html);
+  document.close();
+  
+  if (pfConfig.trackExecutedTime) {
+    planner.updateTrackTime(pfIndex.start, true);
+    planner.errorHandler(3, planner.getElapsedDetailTime(pfIndex.start));
+  }
+  
+  pfIndex = null;
+  if (pfConfig.isProduct) {
+    pfTemplate = null;
+    pfModel = null;
+    pfXMLModel = null;
+  }
+}
+
+})();
+</script>
+
+<noscript>
+  <meta http-equiv="refresh" content="0; url=noscript.html">
+</noscript>
+</head>
+
+<body>
+<!--
+  PlannerFw Controller would print error message to the screen or browser console
+-->
+</body>
+</html>

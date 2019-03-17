@@ -1,0 +1,29 @@
+<!--
+  content-none section template 
+  
+  @package    CI-WP-PF
+  @subpackage PlannerFw
+  
+  Copyright W3plan Technologies <https://www.w3plan.net/> 
+-->
+
+<section class="no-results not-found">
+	<header class="page-header">
+		<h1 class="page-title"><!--%= pfDataSet.theTitle %--></h1>
+	</header><!-- .page-header -->
+  
+	<div class="page-content">
+    <!--% 
+      if (pfDataSet.hasOwnProperty('wpKses')) {
+        <!%= 
+          '<p>' + pfDataSet.wpKses + '<p>' 
+        %>
+      } else {
+        <!%= 
+          '<p>' + pfDataSet.message + '<p>' + 
+          pfDataSet.searchForm 
+        %>
+      }
+    %-->
+	</div><!-- .page-content -->
+</section><!-- .no-results -->

@@ -1,0 +1,115 @@
+<!--%=
+  /**
+   * include header-top section 
+   */
+  planner.section("/wppf/fuseki/struct/header-top.html", pfDataSet.headerTop);
+%-->
+
+<!--%=
+  /** 
+   * include header section
+   */
+  planner.section("/wppf/fuseki/struct/header.html", pfDataSet.header);
+%-->
+
+<!--%= 
+  /** 
+   * include navigation-menu section
+   */
+  planner.section("/wppf/fuseki/struct/navigation-menu.html", pfDataSet.navMenu);
+%-->
+
+<!--%=
+  /** 
+   * include content-top section
+   */
+  planner.section("/wppf/fuseki/struct/content-top.html", pfDataSet.contentTop);
+%-->
+
+<!--
+  index entirety template
+  
+  @package    CI-WP-PF
+  @subpackage PlannerFw
+  
+  Copyright W3plan Technologies <https://www.w3plan.net/> 
+-->
+
+<div class="container<!--% if (pfConfig.viewGlobal.hasOwnProperty('VIEW_DESIGN') && pfConfig.viewGlobal.VIEW_DESIGN === 'fluid') { <!%= '-fluid' %> } %-->">
+  <div class="row">
+    <div class="col-md-9<!--% if (pfConfig.viewGlobal.hasOwnProperty('VIEW_LAYOUT') && pfConfig.viewGlobal.VIEW_LAYOUT === 'sidebar-content') { <!%= ' col-md-push-3' %> } %-->">
+      <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+          <!--%
+            if ( pfDataSet.contentMid.hasOwnProperty('havePosts') )
+            {
+              var plen = pfDataSet.contentMid.havePosts.length;
+              var post;
+              for (post = 0; post < plen; post++) 
+              { 
+          %-->
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 md-box">
+                  <a class="entry-link" href="<!--%= pfDataSet.contentMid.havePosts[post].pLink %-->">
+                    <img class="post-thumbnail thumbnail_img img-responsive" src="<!--%= pfDataSet.contentMid.havePosts[post].thumbnailUrl %-->" alt="Post thumbnail">
+                    <p class="cw-post-title"><!--%= pfDataSet.contentMid.havePosts[post].title %--></p>
+                  </a>
+                </div>
+          <!--%
+              }
+          %-->  
+              <div class="col-md-12 site-pagination">
+                <!--%= pfDataSet.contentMid.thePostsPagination %-->
+              </div>
+          <!--%
+            } else 
+            {
+          %-->
+              <div class="col-md-12">
+                <!--%=
+                  /* include content-none template */
+                  planner.section("/wppf/fuseki/temp/content-none.html", pfDataSet.contentMid.contentNone);
+                %-->
+              </div>
+          <!--%
+            }
+          %--> 
+        </main><!-- #main -->
+      </div><!-- #primary -->
+		</div>
+    
+		<div class="col-md-3<!--% if (pfConfig.viewGlobal.hasOwnProperty('VIEW_LAYOUT') && pfConfig.viewGlobal.VIEW_LAYOUT === 'sidebar-content') { <!%= ' col-md-pull-9' %> } %-->">
+    <!--%
+        if (pfDataSet.contentMid.hasOwnProperty('sideBar')) 
+        {
+    %-->
+        <!--%=
+          /* include sidebar template */
+          planner.section("/wppf/fuseki/struct/sidebar.html", pfDataSet.contentMid.sideBar);
+        %-->
+    <!--%
+        }
+    %-->
+    </div>
+  </div>
+</div>
+
+<!--%=
+  /** 
+   * include content-bottom section
+   */
+  planner.section("/wppf/fuseki/struct/content-bottom.html", pfDataSet.contentBtm);
+%-->
+
+<!--%=
+  /** 
+   * include footer section
+   */
+  planner.section("/wppf/fuseki/struct/footer.html", pfDataSet.footer );
+%-->
+
+<!--%=
+  /** 
+   * include disclaimer section
+   */
+  planner.section("/wppf/fuseki/struct/disclaimer.html", pfDataSet.disclaimer );
+%-->

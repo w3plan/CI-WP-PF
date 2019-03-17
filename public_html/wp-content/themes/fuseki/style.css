@@ -1,0 +1,13 @@
+/*
+Theme Name: Fuseki
+Theme URI: 
+Author: W3plan Technologies
+Author URI: https://www.w3plan.net/
+Description: A default theme for CI-WP-PF
+Version: 1.1.0
+License: GNU General Public License v3.0
+Text Domain: fuseki
+Tags: accessibility-ready, custom-header, custom-menu, featured-images, flexible-header, post-formats, rtl-language-support, threaded-comments, translation-ready, grid-layout
+*/
+
+@import url("/pfcss/wppf/fuseki/style.css");

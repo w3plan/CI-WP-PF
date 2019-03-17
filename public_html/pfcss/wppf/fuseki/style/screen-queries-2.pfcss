@@ -1,0 +1,147 @@
+/**
+
+  section template for screen queries
+  
+  @package    CI-WP-PF
+  @subpackage PlannerFw
+  
+  Copyright W3plan Technologies <https://www.w3plan.net/> 
+
+*/
+
+@media screen and (min-width:62em) 
+{
+  .site-main {
+    margin-bottom: 7em
+  }
+
+  .site-header {
+    padding: 1.25em 4.5455%
+  }
+
+  .header-image,.site-branding,.site-header-menu {
+    margin-top: 1.75em;
+    margin-bottom: 1.75em
+  }
+
+  .custom-logo {
+    max-width: 240px
+  }
+
+  .image-navigation {
+    margin-bottom: 3.230769231em
+  }
+
+  .post-navigation,.site-main>article {
+    margin-bottom: 7em
+  }
+
+  .pagination {
+    margin-bottom: 5.894736842em
+  }
+
+  .widget {
+    margin-bottom: 4.307692308em
+  }
+
+  .entry-title {
+    font-size: 40px;
+    font-size: 2.0rem;
+    line-height: 1.225;
+    margin-bottom: 1.05em
+  }
+
+  .format-aside .entry-title,.format-audio .entry-title,.format-chat .entry-title,.format-gallery .entry-title,.format-image .entry-title,.format-link .entry-title,.format-quote .entry-title,.format-status .entry-title,.format-video .entry-title {
+    font-size: 1.4375em;
+    line-height: 1.304347826;
+    margin-bottom: 1.826086957em
+  }
+
+  .post-thumbnail {
+    margin-bottom: 2.625em
+  }
+
+  <!--%= planner.suffixSelectors('h1', pfvar_comment_entry_summary); %-->{
+    font-size: 33px;
+    font-size: 2.0625rem;
+    line-height: 1.2727272727;
+    margin-top: 1.696969697em;
+    margin-bottom: .8484848485em
+  }
+
+  <!--%= planner.suffixSelectors('h2', pfvar_comment_entry_summary); %--> {
+    font-size: 28px;
+    font-size: 1.75rem;
+    line-height: 1.25;
+    margin-top: 2em;
+    margin-bottom: 1em
+  }
+
+  <!--%= planner.suffixSelectors('h3', pfvar_comment_entry_summary); %--> {
+    font-size: 23px;
+    font-size: 1.4375rem;
+    line-height: 1.2173913043;
+    margin-top: 2.4347826087em;
+    margin-bottom: 1.2173913043em
+  }
+
+  <!--%= planner.suffixSelectors('h4', pfvar_comment_entry_summary); %--> {
+    letter-spacing: .131578947em
+   }
+  
+  .entry-intro h4 {
+    letter-spacing: .131578947em
+  }
+  
+  <!--%= planner.suffixSelectors('h4', pfvar_comment_entry_summary); %-->,
+  <!--%= planner.suffixSelectors('h5', pfvar_comment_entry_summary); %-->,
+  <!--%= planner.suffixSelectors('h6', pfvar_comment_entry_summary); %--> {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1.1052631579;
+    margin-top: 2.9473684211em;
+    margin-bottom: 1.473684211em
+  }
+  
+  .author-info {
+    border-bottom-width: 0;
+    padding-bottom: 0
+  }
+
+  .comment-list+.comment-respond,.comment-navigation+.comment-respond {
+    padding-top: 5.25em
+  }
+
+  .comments-area,.content-bottom-widgets .widget-area,.sidebar,.widecolumn {
+    margin-bottom: 7em
+  }
+  
+  body:not(.search-results) article:not(.type-page) .entry-content>blockquote.alignleft.below-entry-meta {
+    width: -webkit-calc(60% - 1.4736842105em);
+  }
+    
+  <!--%= planner.parseNestedCss(pfvar_body_not_search); %-->  
+  
+  <!--%= planner.prefixSelectors('body:not(.search-results) article:not(.type-page)', 'figure.below-entry-meta img.below-entry-meta, table figure.below-entry-meta, table img.below-entry-meta'); %--> {
+    margin: 0;
+    max-width: 100%
+   }
+  
+  .full-size-link,.single .byline,body:not(.search-results) .cat-links,body:not(.search-results) .entry-format,body:not(.search-results) .tags-links,body:not(.search-results) article:not(.sticky) .posted-on,body:not(.search-results) article:not(.type-page) .comments-link,body:not(.search-results) article:not(.type-page) .entry-footer .edit-link,body:not(.search-results).group-blog .byline {
+    display: block;
+    margin-bottom: .5384615385em
+  }
+  
+  body.no-sidebar:not(.search-results) article:not(.type-page) .entry-content {
+    float: left;
+    margin-right: -100%;
+    margin-left: 34.99999999%;
+    width: 50.00000001%
+  }
+
+  body.no-sidebar:not(.search-results) article:not(.type-page) .entry-footer {
+    margin-right: -100%;
+    margin-left: 15%;
+    width: 15%
+  }
+}

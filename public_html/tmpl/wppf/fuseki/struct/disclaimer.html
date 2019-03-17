@@ -1,0 +1,70 @@
+<!--
+  disclaimer section template 
+  
+  @package    CI-WP-PF
+  @subpackage PlannerFw
+  
+  Copyright W3plan Technologies <https://www.w3plan.net/> 
+-->
+
+    <div class="container<!--% if (pfConfig.viewGlobal.hasOwnProperty('VIEW_DESIGN') && pfConfig.viewGlobal.VIEW_DESIGN === 'fluid') { <!%= '-fluid' %> } %-->">
+      <div class="row footer-bottom">
+        <div class="pull-left">
+        </div>
+        <div class="pull-right">
+          <!--%= pfDataSet.copyClaim %-->
+        </div>
+      </div>
+    </div>
+  
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<!--%= pfDataSet.wpFooter %-->
+
+<!--%
+  if (pfDataSet.hasOwnProperty('dfpTags')) {
+%-->
+
+<script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+<script>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+googletag.cmd.push(function() {
+  googletag.pubads().set("adsense_background_color", "FFFFFF");    
+});
+googletag.cmd.push(function() {
+  googletag.defineSlot("<!--%= pfDataSet.dfpTags.ADUNITPATH0 %-->", <!--%= pfDataSet.dfpTags.ADSLOTSIZE0 %-->, "div-gpt-ad-123456789-0")
+           .addService(googletag.pubads())
+           .setTargeting(<!--%= pfDataSet.dfpTags.SLOTLEVELTARGETING0 %-->);
+  googletag.defineSlot("<!--%= pfDataSet.dfpTags.ADUNITPATH1 %-->", <!--%= pfDataSet.dfpTags.ADSLOTSIZE1 %-->, "div-gpt-ad-123456789-1")
+           .addService(googletag.pubads())
+           .setTargeting(<!--%= pfDataSet.dfpTags.SLOTLEVELTARGETING1 %-->);
+  googletag.pubads().setTargeting(<!--%= pfDataSet.dfpTags.PAGELEVELTARGETING %-->);
+  googletag.pubads().enableSingleRequest();
+  googletag.enableServices();
+});
+</script>
+
+<!--%
+  }
+%-->
+
+<!--%
+  if (pfDataSet.hasOwnProperty('trackId')) {
+%-->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=<!--%= pfDataSet.trackId %-->"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+  gtag('config', '<!--%= pfDataSet.trackId %-->');
+</script>
+
+<!--%
+  }
+%-->
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!--%=
+  /** 
+   * include header-top section
+   */
+  planner.section("/wppf/fuseki/struct/header-top.html", pfDataSet.headerTop);
+%-->
+
+<!--%=
+  /** 
+   * include navigation-menu section
+   */
+  planner.section("/wppf/fuseki/struct/navigation-menu.html", pfDataSet.navMenu);
+%-->
+
+<!--%=
+  /** 
+   * include content-top section
+   */
+  planner.section("/wppf/fuseki/struct/content-top.html", pfDataSet.contentTop);
+%-->
+
+<!--
+  page entirety template
+  
+  @package    CI-WP-PF
+  @subpackage PlannerFw
+  
+  Copyright W3plan Technologies <https://www.w3plan.net/> 
+-->
+
+<div class="container<!--% if (pfConfig.viewGlobal.hasOwnProperty('VIEW_DESIGN') && pfConfig.viewGlobal.VIEW_DESIGN == 'fluid') { <!%= '-fluid' %> } %-->">
+  <div class="row">
+    <div class="col-md-9<!--% if (pfConfig.viewGlobal.hasOwnProperty('VIEW_LAYOUT') && pfConfig.viewGlobal.VIEW_LAYOUT === 'sidebar-content') { <!%= ' col-md-push-3' %> } %-->">
+      <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+          <!--%
+            if ( pfDataSet.contentMid.hasOwnProperty('havePosts') )
+            { 
+              var plen = pfDataSet.contentMid.havePosts.length;
+              var post;
+              for (post = 0; post < plen; post++) 
+              {
+          %-->
+                <div class="row">
+                <div class="col-md-12">
+                <!--%=
+                  /* include content-page template */
+                  planner.section("/wppf/fuseki/temp/content-page.html", pfDataSet.contentMid.havePosts[post].contentPage);
+                %-->
+                </div></div>
+          <!--%
+                if ( pfDataSet.contentMid.havePosts[post].hasOwnProperty('pageComments') )
+                {
+                  <!%=
+                      '<div class="entry-content">' + 
+                      '<div class="vertical-interval"></div>' +
+                      '<h3>User Comments</h3>' +
+                      '<div class="row">' +
+                      '<div class="col-md-12">'
+                  %>
+                  var commentsLen = pfDataSet.contentMid.havePosts[post].pageComments.length;
+                  var i;
+                  for (i = 0; i < commentsLen; i++) 
+                  {
+                    <!%=
+                        '<div class="vertical-interval"></div>' +
+                        '<div class="row">' +
+                          '<div class="col-md-12">' +
+                            pfDataSet.contentMid.havePosts[post].pageComments[i].date + ' By ' + 
+                            pfDataSet.contentMid.havePosts[post].pageComments[i].author + ' [' + 
+                            pfDataSet.contentMid.havePosts[post].pageComments[i].email + ']</div>' +
+                          '<div class="col-md-1"></div>' + 
+                          '<div class="col-md-10">' +
+                            pfDataSet.contentMid.havePosts[post].pageComments[i].content +
+                          '</div><div class="col-md-1"></div>' +
+                        '</div>'
+                    %>
+                  }
+                  <!%= '</div></div></div>' %>
+                }
+              
+                if (pfDataSet.contentMid.havePosts[post].hasOwnProperty('comments') && pfDataSet.contentMid.havePosts[post].comments) 
+                {
+          %-->
+                  <div class="vertical-interval"></div>
+                  <div class="row">
+                  <div class="col-md-12">
+                    <!--%=
+                      /* include comments template */
+                      planner.section("/wppf/fuseki/struct/comments.html", pfDataSet.contentMid.havePosts[post].comments);
+                    %-->
+                  </div></div>
+          <!--%
+                }
+              }
+            }
+          %-->
+        </main><!-- #main -->
+      </div><!-- #primary -->
+    </div>
+    
+		<div class="col-md-3<!--% if (pfConfig.viewGlobal.hasOwnProperty('VIEW_LAYOUT') && pfConfig.viewGlobal.VIEW_LAYOUT === 'sidebar-content') { <!%= ' col-md-pull-9' %> } %-->">
+    <!--%
+        if (pfDataSet.contentMid.hasOwnProperty('sideBar'))
+        {
+    %-->   
+          <!--%=
+            /* include sidebar template */
+            planner.section("/wppf/fuseki/struct/sidebar.html", pfDataSet.contentMid.sideBar);
+          %-->
+    <!--%
+        }
+    %-->
+    </div>
+  </div>
+</div>
+
+<!--%=
+  /** 
+   * include content-bottom section
+   */
+  planner.section("/wppf/fuseki/struct/content-bottom.html", pfDataSet.contentBtm);
+%-->
+
+<!--%=
+  /** 
+   * include footer section
+   */
+  planner.section("/wppf/fuseki/struct/footer.html", pfDataSet.footer );
+%-->
+
+<!--%=
+  /** 
+   * include disclaimer section
+   */
+  planner.section("/wppf/fuseki/struct/disclaimer.html", pfDataSet.disclaimer );
+%-->

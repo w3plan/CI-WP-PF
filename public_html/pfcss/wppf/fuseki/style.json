@@ -1,0 +1,4 @@
+{
+"description": "List all section files that were included by the entirety. This file was created by PlannerFw Preprocessor.",
+"sections": ["/wppf/fuseki/style/variables.pfcss","/wppf/fuseki/style/html-tags.pfcss","/wppf/fuseki/style/screen-queries-1.pfcss","/wppf/fuseki/style/screen-queries-2.pfcss","/wppf/fuseki/style/screen-queries-3.pfcss","/wppf/fuseki/style/print-queries.pfcss"]
+}

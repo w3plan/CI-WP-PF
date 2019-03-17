@@ -1,0 +1,48 @@
+<!--
+  header section template 
+  
+  @package    CI-WP-PF
+  @subpackage PlannerFw
+  
+  Copyright W3plan Technologies <https://www.w3plan.net/> 
+-->
+
+<div class="container<!--% if (pfConfig.viewGlobal.hasOwnProperty('VIEW_DESIGN') && pfConfig.viewGlobal.VIEW_DESIGN === 'fluid') { <!%= '-fluid' %> } %-->">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="carousel slide" id="carousel-ci-wp">
+				<ol class="carousel-indicators">
+					<li class="active" data-slide-to="0" data-target="#carousel-ci-wp"></li>
+					<li data-slide-to="1" data-target="#carousel-ci-wp"></li>
+					<li data-slide-to="2" data-target="#carousel-ci-wp"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="item active">
+            <img alt="Carousel Bootstrap First" src="<!--%= pfDataSet.slideOne %-->" />
+						<div class="carousel-caption">
+							<!--h4>Caption title</h4-->
+							<p><!--%= pfDataSet.caption1 %--></p>
+						</div>
+					</div>
+					<div class="item">
+            <img alt="Carousel Bootstrap Second" src="<!--%= pfDataSet.slideTwo %-->" />
+						<div class="carousel-caption">
+							<!--h4>Caption title</h4-->
+							<p><!--%= pfDataSet.caption2 %--></p>
+						</div>
+					</div>
+					<div class="item">
+            <img alt="Carousel Bootstrap Third" src="<!--%= pfDataSet.slideThree %-->" />
+						<div class="carousel-caption">
+							<!--h4>Caption title</h4-->
+							<p><!--%= pfDataSet.caption3 %--></p>
+						</div>
+					</div>
+				</div>
+				<a class="left carousel-control" href="#carousel-ci-wp" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#carousel-ci-wp" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+ 
