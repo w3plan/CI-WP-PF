@@ -128,11 +128,11 @@ if (function_exists("store_data"))
                 if ( get_post_meta( $popular->ID, 'popular_posts', true) > 1 ) 
                 { 
                   $plink = esc_url( get_permalink( $popular->ID ) ?: '' );
-                  $title = get_the_title( $popular->ID );
+                  $mytitle = get_the_title( $popular->ID );
                   $postImageUrl = get_the_post_thumbnail_url( $popular->ID );
                   
                   if ( $postImageUrl ) {	
-                    $postImage = '<img class="post-thumbnail thumbnail_img img-responsive" src="' . $postImageUrl . '" alt="' . $title . '">';
+                    $postImage = '<img class="post-thumbnail thumbnail_img img-responsive" src="' . $postImageUrl . '" alt="' . $mytitle . '">';
                   } else {
                     $postImage = '<img class="post-thumbnail thumbnail_img img-responsive" src="' . current_theme_file_uri(   "/imgs/post-thumbnail.png" ) . '" alt="Post thumbnail">';
                   }
@@ -141,7 +141,7 @@ if (function_exists("store_data"))
                   <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 md-box">
                     <a class="entry-link" href="$plink">
                       $postImage
-                      <p class="cw-post-title">$title</p>
+                      <p class="cw-post-title">$mytitle</p>
                     </a>
                   </div>
 HTML;
