@@ -24,7 +24,12 @@ RewriteRule . /index.php [L]
 
 # BEGIN CI-WP-PF
 Options All -Indexes
-Options +FollowSymLinks
+
+# lock WordPress xmlrpc.php requests
+<Files xmlrpc.php>
+order deny,allow
+deny from all
+</Files>
 
 ErrorDocument 400 /errors/400.html
 ErrorDocument 401 /errors/401.html
