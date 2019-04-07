@@ -206,7 +206,7 @@ a:active,a:hover {
 
 <!--%  
   function pffunc_social_navigation(selects) {
-    pfvar_selects.split(',').map(
+    selects.split(',').map(
       function(e) {
         let items = e.split(':');
         <!%= '.social-navigation a[href' + items[1].trim() + ']:before { content: "' + items[0].trim() + '" }' %>
